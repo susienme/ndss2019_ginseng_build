@@ -90,8 +90,10 @@ ARM_TF_FLAGS ?= \
 	BL33=$(EDK2_BIN) \
 	SCP_BL2=$(MCUIMAGE_BIN) \
 	DEBUG=$(DEBUG) \
+	CRASH_REPORTING=1 \
 	PLAT=hikey \
 	SPD=opteed
+//////////////////////////// YMH_MODIFIED: added CRASH_REPORTING
 
 ARM_TF_CONSOLE_UART ?= $(CFG_SW_CONSOLE_UART)
 ifeq ($(ARM_TF_CONSOLE_UART),0)

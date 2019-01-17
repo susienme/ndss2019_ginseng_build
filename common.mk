@@ -19,7 +19,6 @@ OPTEE_TEST_OUT_PATH		?= $(ROOT)/optee_test/out
 OPTEE_EXAMPLES_PATH		?= $(ROOT)/optee_examples
 BENCHMARK_APP_PATH		?= $(ROOT)/optee_benchmark
 LIBYAML_LIB_PATH		?= $(BENCHMARK_APP_PATH)/libyaml/out/lib
-
 # default high verbosity. slow uarts shall specify lower if prefered
 CFG_TEE_CORE_LOG_LEVEL		?= 3
 
@@ -185,10 +184,7 @@ linux-common: linux-defconfig
 	$(MAKE) -C $(LINUX_PATH) $(LINUX_COMMON_FLAGS)
 
 $(LINUX_PATH)/.config: $(LINUX_DEFCONFIG_COMMON_FILES)
-	cd $(LINUX_PATH) && \
-		ARCH=$(LINUX_DEFCONFIG_COMMON_ARCH) \
-		scripts/kconfig/merge_config.sh $(LINUX_DEFCONFIG_COMMON_FILES) \
-			$(LINUX_DEFCONFIG_BENCH)
+	cp $(ROOT)/build/defconfig $(LINUX_PATH)/.config
 
 .PHONY: linux-defconfig-clean-common
 linux-defconfig-clean-common:

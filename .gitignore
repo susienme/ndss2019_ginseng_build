@@ -4,3 +4,7 @@
 /serial1.log
 .gdb_history
 gdb
+/ab
+/working_version.history
+.NDSS_changed_files
+.NDSS_diff
